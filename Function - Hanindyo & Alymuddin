@@ -1,0 +1,190 @@
+#include <iostream>
+#include <conio.h>
+#include <string>
+using namespace std;
+
+int Max(int a,int b,int c)
+{
+	int max;
+	if(a>b)
+	{
+		max = a;
+	}
+	else
+	{
+		max = b;
+	}
+
+	if (max<c)
+	{
+		max = c;
+	}
+	return max;
+}
+
+int nomor1()
+{
+	int a,b,c;
+	cout<<"Masukkan 3 bilangan: "<<endl;
+	cout<<"a = ";
+	cin>>a;
+	cout<<"b = ";
+	cin>>b;
+	cout<<"c = ";
+	cin>>c;
+	cout<<endl;
+
+	cout<<"a = "<<a<<" b = "<<b<<" c = "<<c<<endl<<endl;
+	cout<<"Bilangan Max = "<<Max(a,b,c)<<endl<<endl;
+	getch();
+	system("cls");
+	return 0;
+}
+
+float Median(float min, float max)
+{
+	float med = (min + max)/2;
+	return med;
+}
+
+float nomor2()
+{
+	int n;
+	float med,min,max,bil;
+	cout<<"Berapa jumlah bilangan yg di input? ";
+	cin>>n; cout<<endl;
+
+	if(n==0)
+	{
+		goto kelar;
+	}
+
+	cout<<"Input bilangan ke-1 : ";
+	cin>>bil;
+	min = bil;
+	max = bil;
+
+	if(n>1)
+	{
+		for(int i = 1; i < n; i++)
+		{
+			cout<<"Input bilangan ke-"<<i+1<<" : ";
+			cin>>bil;
+		
+			if(bil<min)
+			{
+				min = bil;
+			}
+			if(bil>max)
+			{
+				max = bil;
+			}
+		}
+	}
+	med = Median(min,max); cout<<endl;
+	cout<<"Bilangan Max = "<<max<<endl;
+	cout<<"Bilangan Min = "<<min<<endl<<endl;
+	cout<<"Median nya adalah = "<<med<<endl<<endl;
+	kelar:;
+	getch();
+	system("cls");
+	return 0;
+}
+
+void Luas()
+{
+	int panjang, lebar,luas;
+	cout<<"Input Panjang: ";
+	cin>>panjang;
+	cout<<"Input Lebar: ";
+	cin>>lebar;
+	luas = panjang*lebar;
+	cout<<endl<<"Luas persegi panjang adalah = "<<luas<<endl;
+	cout<<"Luas 4 persegi panjang adalah = "<<4*luas<<endl<<endl;
+	getch();
+	system("cls");
+}
+
+void Keliling()
+{
+	int panjang, lebar, keliling;
+	cout<<"Input Panjang: ";
+	cin>>panjang;
+	cout<<"Input Lebar: ";
+	cin>>lebar;
+	keliling = 2*(panjang+lebar);
+	cout<<endl<<"Keliling persegi panjang adalah = "<<keliling<<endl;
+	cout<<"Keliling 4 persegi panjang adalah = "<<4*keliling<<endl<<endl;
+	getch();
+	system("cls");
+}
+
+void nomor3()
+{
+	menu:;
+	string choose;
+	cout<<" Menu Nomor 3: "<<endl;
+	cout<<" 1. Luas "<<endl;
+	cout<<" 2. Keliling "<<endl;
+	cout<<" 3. Selesai "<<endl<<endl;
+
+	cout<<" Pilih Menu: ";
+	cin.sync();
+	getline(cin,choose);
+	system("cls");
+	if(choose == "1")
+	{
+		Luas();
+		goto menu;
+	}
+	else if(choose == "2")
+	{
+		Keliling();
+		goto menu;
+	}
+	else if(choose == "3")
+	{
+		true;
+	}
+	else
+	{
+		cout<<"Menu tidak ada"<<endl;
+		getch();
+		system("cls");
+		goto menu;
+	}
+}
+
+int main()
+{
+	menu:;
+	string pilih;
+	cout<<" Menu : "<<endl<<endl;
+	cout<<" 1. No.1 "<<endl;
+	cout<<" 2. No.2 "<<endl;
+	cout<<" 3. No.3 "<<endl;
+	cout<<" 4. Exit "<<endl<<endl;
+	cout<<"Pilih nomor: ";
+	cin>>pilih;
+	system("cls");
+
+	if(pilih == "1")
+	{
+		nomor1();
+		goto menu;
+	}
+	else if(pilih == "2")
+	{
+		nomor2();
+		goto menu;
+	}
+	else if(pilih == "3")
+	{
+		nomor3();
+		goto menu;
+	}
+	else
+	{
+		exit(0);
+	}
+}
